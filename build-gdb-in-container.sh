@@ -56,6 +56,9 @@ OUTPUT_ARCHIVE_NAME=arm-none-eabi-gdb-$PYTHON_VERSION.tar.bz2
 LIBPYTHON_PATH=$(ldconfig -p | grep -E 'python3.7.*\.so\.1\.0' | awk '{print $NF}')
 cp $LIBPYTHON_PATH tmp/bin/
 
+# strip
+find tmp/ -type f -executable -exec strip '{}' \;
+
 tar -cvjf $OUTPUT_ARCHIVE_NAME -C tmp .
 
 # Copy out the generated archive

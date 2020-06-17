@@ -24,4 +24,4 @@ PYTHON_VERSION=${PYTHON_VERSION:-python3.7}
 # build gdb with the helper script. pass it current user id + group to chown
 # after copying out result
 docker run -v "$(pwd)":/data -t "$DOCKER_IMAGE_NAME" \
-    bash -c "PYTHON_VERSION=$PYTHON_VERSION /data/build-in-container.sh $1 $(id -u):$(id -g)"
+    bash -c "PYTHON_VERSION=$PYTHON_VERSION /data/build-gdb-in-container.sh $1 $(id -u):$(id -g)"
