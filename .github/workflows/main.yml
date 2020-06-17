@@ -1,0 +1,32 @@
+name: main-ci
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+strategy:
+  matrix:
+    python: [python2.7, python3.7, python3.8, python3.9]
+    source: [9-2020q2]
+
+runs-on: ubuntu-latest
+steps:
+  # checkout v2, with recursive submodule update
+  - uses: actions/checkout@v2
+    with:
+      submodules: recursive
+
+  - name: download
+    run: ./download-source.sh ${{ matrix.source }}
+  - name: build
+    run: PYTHON_VERSION=${{ matrix.python }} ./build-gdb.sh gcc-arm-none-eabi-*-src.tar.bz2;
+
+  # save the output
+  - uses: actions/upload-artifact@v1
+  with:
+    name: ${{ matrix.python }}-output
+    path: ./arm-none-eabi-gdb-${{ matrix.python }}.tar.bz2
