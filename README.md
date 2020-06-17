@@ -1,3 +1,10 @@
+[![github](https://img.shields.io/badge/github-noahp%2Fgcc--arm--toolchain--builder-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/noahp/gcc-arm-toolchain-builder)
+[![build status](https://img.shields.io/github/workflow/status/noahp/gcc-arm-toolchain-builder/main-ci/master?style=for-the-badge)](https://github.com/noahp/gcc-arm-toolchain-builder/actions?query=branch%3Amaster)
+
+- [gcc-arm-toolchain-builder](#gcc-arm-toolchain-builder)
+  - [Usage](#usage)
+    - [gdb](#gdb)
+
 # gcc-arm-toolchain-builder
 
 **_NOTE_**: WIP! most functionality is not there
